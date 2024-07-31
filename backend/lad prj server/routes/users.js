@@ -99,6 +99,7 @@ router.post(
         user: {
           id: user.id,
           role: user.role,
+          name: user.name
         },
       };
 
@@ -108,7 +109,7 @@ router.post(
         { expiresIn: '5 days' },
         (err, token) => {
           if (err) throw err;
-          res.json({ token, role: user.role });
+          res.json({ token, role: user.role, name: user.name });
         }
       );
     } catch (err) {
@@ -119,4 +120,4 @@ router.post(
 
 );
 
-module.exports = router;
+module.exports = router;
